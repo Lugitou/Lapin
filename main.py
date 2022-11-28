@@ -1,13 +1,13 @@
 from entities.Garden import Garden
 from datetime import date, timedelta
-from utils.Graphs import printPlot
+from utils.Graphs import printPlot, logRabbit, logCarrot
 
 print('hi py !')
 
 startDate = date.today()
 currentDate = startDate
 endDate = startDate
-endDate = endDate.replace(year=startDate.year + 5)
+endDate = endDate.replace(year=startDate.year + 1)
 
 garden = Garden()
 
@@ -42,4 +42,8 @@ while currentDate < endDate:
     if calcNbDayFromStart(currentDate, startDate) % 180 == 0 and currentDate != startDate:
         garden.reproduce()
 
-    printPlot()
+    logRabbit(len(garden.rabbits), currentDate.strftime("%d/%m/%Y"))
+    logCarrot(garden.carrots, currentDate.strftime("%d/%m/%Y"))
+
+
+printPlot()
