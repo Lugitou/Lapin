@@ -1,4 +1,4 @@
-from random import randint
+import random
 
 
 class Rabbit:
@@ -10,7 +10,7 @@ class Rabbit:
     fed: 1
 
     def __init__(self):
-        self.sex = ("M", "F")[randint(0, 1)]
+        self.sex = ("M", "F")[random.randint(0, 1)]
 
     # On nourrit le lapin ici
     # Si il n'est pas nourrit, on passe son age maximum à 4 ans
@@ -24,3 +24,6 @@ class Rabbit:
 
     def setSex(self, sex):
         self.sex = sex
+
+    def reproduced(self):
+        self.reproduction = 1

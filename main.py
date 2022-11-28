@@ -1,5 +1,6 @@
 from entities.Garden import Garden
 from datetime import date, timedelta
+from utils.Graphs import printPlot
 
 print('hi py !')
 
@@ -26,6 +27,9 @@ while currentDate < endDate:
 
     # Ici on appelle les différentes actions pouvant survenir
 
+    # Les lapins grandissent tous les jours
+    garden.growRabbits()
+
     # Les lapins mangent tous les 7 jours
     if calcNbDayFromStart(currentDate, startDate) % 7 == 0:
         garden.eat()
@@ -33,3 +37,9 @@ while currentDate < endDate:
     # Le 1er juin les carottes sont prètes et ajoutées au stock
     if currentDate.month == 6 and currentDate.day == 1:
         garden.growCarrots()
+
+    # Tous les 180 jours (6 mois) les lapins se reproduisent ( 2 fois par an )
+    if calcNbDayFromStart(currentDate, startDate) % 180 == 0 and currentDate != startDate:
+        garden.reproduce()
+
+    printPlot()
