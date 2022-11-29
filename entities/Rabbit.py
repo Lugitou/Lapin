@@ -13,8 +13,8 @@ class Rabbit:
         self.sex = ("M", "F")[random.randint(0, 1)]
 
     # On nourrit le lapin ici
-    # Si il n'est pas nourrit, on passe son age maximum à 4 ans
-    # Si il n'est pas nourrit et qu'il n'avait déjà pas été nourrit la semaine précédente, il meurt
+    # Si il n'est pas nourri, on passe son age maximum à 4 ans
+    # Si il n'est pas nourri et qu'il n'avait déjà pas été nourri la semaine précédente, il meurt
     def feed(self, flag):
         if not flag:
             self.fed = flag
@@ -27,3 +27,6 @@ class Rabbit:
 
     def reproduced(self):
         self.reproduction = 1
+
+    def setAge(self, age):
+        self.age = age
